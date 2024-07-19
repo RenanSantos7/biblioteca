@@ -9,7 +9,6 @@ Este é um projeto pessoal de app mobile em React Native que tem como objetivo p
 - [React](https://react.dev)
 - [TypeScript](https://www.typescriptlang.org/)
 
-
 ## Como rodar localmente
 
 Este projeto foi criado usando [Expo](https://expo.dev), portanto você pode seguir a documentação dessa biblioteca para fazer deploy do app.
