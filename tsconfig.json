@@ -1,6 +1,26 @@
 {
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
-    "strict": true
+    "allowImportingTsExtensions": true,
+		
+		// Js Support
+		
+		//Emit
+
+		
+		// Interop Constraints
+		"isolatedModules": true,
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		
+		// Type Check
+		"strict": true,
+		"strictNullChecks": false,
+		"noUnusedLocals": false,
+		"noUnusedParameters": false,
+		"noFallthroughCasesInSwitch": true,
+		
+		// Completeness
+		"skipLibCheck": true
   }
 }
