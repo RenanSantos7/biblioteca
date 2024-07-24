@@ -1,15 +1,27 @@
 import { StyleSheet } from "react-native";
 import defaultStyles from "../../styles/defaultStyles";
+import theme from "../../styles/themes/themeSwitcher";
 
 export const styles = StyleSheet.create({
     ...defaultStyles,
-    container: {
-        flex: 1,
-    },
     tituloContainer: {
-        height: 150,
+        // height: 150,
         justifyContent: 'flex-end',
-        paddingHorizontal: 15,
         paddingVertical: 25,
+    },
+    barraPesquisa: {
+        backgroundColor: theme.cores.background.light,
+        borderRadius: 12,
+        elevation: 1,
+        marginTop: 10,
+        paddingHorizontal: 10,
+        marginVertical: 10,
+        gap: 10,
+    },
+    containerCentralizado: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        paddingVertical: 250,
     }
 });

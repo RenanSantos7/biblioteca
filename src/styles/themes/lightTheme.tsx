@@ -10,6 +10,7 @@ export const lightTheme:ITheme = {
         texto: {
             main: '#8c8c8c',
             dark: '#010101',
+            light: '#50505020'
         },
         background: {
             main: '#f6f6f6',
