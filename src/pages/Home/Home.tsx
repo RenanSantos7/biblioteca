@@ -12,8 +12,8 @@ import BtDrawer from '../../components/BtDrawer'
 
 interface HomeProps {}
 
-export default function Home({}: HomeProps) {
-    const { livros } = useDataContext();
+export default function Home({ }: HomeProps) {
+    const { livros, user } = useDataContext();
     const [pesquisa, setPesquisa] = useState('');
 
 	const defaultGap = 15
@@ -23,8 +23,8 @@ export default function Home({}: HomeProps) {
 			<View style={styles.tituloContainer}>
 				<FlexLine style={{gap: defaultGap}}>
 					<BtDrawer />
-					<Text style={styles.titulo1}>Biblioteca</Text>
-				</FlexLine>
+					<Text style={styles.titulo1}>Olá, {user.name}</Text>
+                </FlexLine>               
             </View>
             
 			<FlatList

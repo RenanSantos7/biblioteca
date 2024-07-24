@@ -1,9 +1,12 @@
-import { createContext, ReactNode, useContext, useState } from 'react'
-import { ILivro } from '../types/types'
-import { listaLivros } from './livros'
+import { createContext, ReactNode, useContext, useState } from 'react';
+import { ILivro } from '../types/types';
+import { listaLivros } from './livros';
 
 interface IDataContext {
-	livros: ILivro[]
+	user: {
+		name: string;
+	};
+	livros: ILivro[];
 	cadastrarLivro: (
 		isbn: string,
 		titulo: string,
@@ -16,13 +19,18 @@ interface IDataContext {
 		lingua: string,
 		numPaginas?: number,
 		formato?: 'digital' | 'físico',
-	) => void
+	) => void;
 }
 
-const DataContext = createContext<IDataContext>(null)
+const usuario = {
+	name: 'Renan',
+};
+
+const DataContext = createContext<IDataContext>(null);
 
 export function DataProvider({ children }: { children: ReactNode }) {
-	const [livros, setLivros] = useState(listaLivros)
+	const [livros, setLivros] = useState(listaLivros);
+	const [user, setuser] = useState(usuario);
 
 	function cadastrarLivro(
 		isbn: string,
@@ -40,7 +48,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
 		const proxId = livros.reduce(
 			(maxId, livro) => Math.max(maxId, Number(livro.id)),
 			0,
-		)
+		);
 		const novoLivro = {
 			id: `${proxId + 1}`,
 			isbn: isbn,
@@ -54,19 +62,20 @@ export function DataProvider({ children }: { children: ReactNode }) {
 			lingua: lingua,
 			numPaginas: numPaginas,
 			formato: formato,
-		}
-		setLivros(prev => [...prev, novoLivro])
+		};
+		setLivros(prev => [...prev, novoLivro]);
 	}
 
 	return (
-		<DataContext.Provider value={{ livros, cadastrarLivro }}>
+		<DataContext.Provider value={{
+			user,
+			livros, cadastrarLivro
+		}}>
 			{children}
 		</DataContext.Provider>
-	)
+	);
 }
 
 export default function useDataContext() {
-	return useContext(DataContext)
+	return useContext(DataContext);
 }
-
-
