@@ -1,20 +1,20 @@
-import { Button, Image, StyleSheet, Text, View } from 'react-native';
-import FlexLine from '../../components/FlexLine';
-import useDataContext from '../../contexts/dataContext';
+import { Image, Text, View } from 'react-native';
+
+
 import { styles } from './LivroStyles';
+import Button from '../../components/Button';
+import FlexLine from '../../components/FlexLine';
 import Scroll from '../../components/Scroll';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import useDataContext from '../../contexts/dataContext';
+import Page from '../../components/Page';
+
 
 export default function Livro() {
 	const { livros } = useDataContext();
 	const livro = livros[0];
 
 	return (
-		<View style={styles.containerPag}>
-			<FlexLine>
-				<Text style={styles.titulo1}>{livro.titulo}</Text>
-			</FlexLine>
-
+		<Page title={`${livro.titulo}`}>
 			<Scroll>
 				<Image source={{ uri: livro.thumbnail }} style={styles.capa} />
 
@@ -96,8 +96,26 @@ export default function Livro() {
 							</View>
 						</FlexLine>
 					)}
+					<FlexLine style={styles.linha}>
+						<View style={styles.colunaDestaque}>
+							<Text style={styles.textoDestaque}>
+								Status:
+							</Text>
+						</View>
+						<View>
+							<Text style={styles.texto}>
+								{livro.status}
+							</Text>
+						</View>
+					</FlexLine>
+
+					<Button
+						title={'Marcar como lido'}
+						icon='book-check-outline'
+						onPress={() => alert('Lido')}
+					/>
 				</View>
 			</Scroll>
-		</View>
+		</Page>
 	);
 }

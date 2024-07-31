@@ -16,6 +16,7 @@ export default function CardLivro({ livro }: CardLivroProps) {
 		<TouchableOpacity
 			style={styles.container}
 			activeOpacity={0.9}
+			//@ts-expect-error
 			onPress={() => navigation.navigate('Livro')}
 		>
 			<Image source={{ uri: livro.thumbnail }} style={styles.image} />
@@ -38,6 +39,7 @@ const styles = StyleSheet.create({
 		gap: 10,
 		overflow: 'hidden',
 		marginBottom: 15,
+		maxWidth: '50%',
 	},
 	textoBox: {
 		padding: 15,

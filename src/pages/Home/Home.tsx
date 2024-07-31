@@ -1,6 +1,5 @@
 import { ActivityIndicator, FlatList, Text, View } from 'react-native'
 import { styles } from './HomeStyles'
-import Scroll from '../../components/Scroll'
 import useDataContext from '../../contexts/dataContext'
 import CardLivro from './components/CardLivro'
 import BarraPesquisa from './components/BarraPesquisa'
@@ -9,6 +8,8 @@ import FlexLine from '../../components/FlexLine'
 import { useState } from 'react'
 import theme from '../../styles/themes/themeSwitcher'
 import BtDrawer from '../../components/BtDrawer'
+import { defaultGap } from '../../constants'
+import Page from '../../components/Page'
 
 interface HomeProps {}
 
@@ -16,17 +17,8 @@ export default function Home({ }: HomeProps) {
     const { livros, user } = useDataContext();
     const [pesquisa, setPesquisa] = useState('');
 
-	const defaultGap = 15
-
 	return (
-		<View style={styles.containerPag}>
-			<View style={styles.tituloContainer}>
-				<FlexLine style={{gap: defaultGap}}>
-					<BtDrawer />
-					<Text style={styles.titulo1}>Olá, {user.name}</Text>
-                </FlexLine>               
-            </View>
-            
+		<Page title={`Olá,  ${user.name}`}>           
 			<FlatList
 				data={livros}
 				renderItem={({ item }) => <CardLivro livro={item} />}
@@ -49,6 +41,6 @@ export default function Home({ }: HomeProps) {
 				<BarraPesquisa valor={pesquisa} setValor={setPesquisa} />
 				<LeitorCodigo />
 			</FlexLine>
-		</View>
+		</Page>
 	)
 }

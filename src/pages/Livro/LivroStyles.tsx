@@ -28,6 +28,7 @@ export const styles = StyleSheet.create({
 	},
 	texto: {
 		fontSize: 16,
+		lineHeight: 24,
 		color: theme.cores.texto.main,
 	},
 });

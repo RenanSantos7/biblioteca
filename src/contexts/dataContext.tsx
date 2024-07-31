@@ -29,7 +29,7 @@ const usuario = {
 const DataContext = createContext<IDataContext>(null);
 
 export function DataProvider({ children }: { children: ReactNode }) {
-	const [livros, setLivros] = useState(listaLivros);
+	const [livros, setLivros] = useState<ILivro[]>(listaLivros);
 	const [user, setuser] = useState(usuario);
 
 	function cadastrarLivro(
@@ -49,7 +49,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
 			(maxId, livro) => Math.max(maxId, Number(livro.id)),
 			0,
 		);
-		const novoLivro = {
+		const novoLivro:ILivro = {
 			id: `${proxId + 1}`,
 			isbn: isbn,
 			titulo: titulo,
@@ -62,6 +62,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
 			lingua: lingua,
 			numPaginas: numPaginas,
 			formato: formato,
+			status: 'Não lido'
 		};
 		setLivros(prev => [...prev, novoLivro]);
 	}

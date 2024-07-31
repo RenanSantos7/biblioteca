@@ -5,9 +5,9 @@ import MaterialComIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import theme from '../styles/themes/themeSwitcher';
 
-import Home from '../pages/Home/Home';
-import SettingsPage from '../pages/Settings/SettingsPage';
 import StackHome from './StackHome';
+import SettingsPage from '../pages/Settings/SettingsPage';
+import About from '../pages/About/About';
 
 const Drawer = createDrawerNavigator();
 
@@ -29,6 +29,7 @@ export default function DrawerRouter() {
 					name='StackHome'
 					component={StackHome}
 					options={{
+						title: 'Início',
 						drawerIcon: ({ focused, color, size }) => {
 							if (focused) {
 								return (
@@ -67,6 +68,31 @@ export default function DrawerRouter() {
 							return (
 								<IonIcon
 									name='settings-outline'
+									color={color}
+									size={size}
+								/>
+							);
+						},
+					}}
+				/>
+
+				<Drawer.Screen
+					name='Sobre'
+					component={About}
+					options={{
+						drawerIcon: ({ focused, color, size }) => {
+							if (focused) {
+								return (
+									<MaterialComIcon
+										name='information'
+										color={color}
+										size={size}
+									/>
+								);
+							}
+							return (
+								<MaterialComIcon
+									name='information-outline'
 									color={color}
 									size={size}
 								/>

@@ -4,11 +4,6 @@ import theme from "../../styles/themes/themeSwitcher";
 
 export const styles = StyleSheet.create({
     ...defaultStyles,
-    tituloContainer: {
-        // height: 150,
-        justifyContent: 'flex-end',
-        paddingVertical: 25,
-    },
     barraPesquisa: {
         backgroundColor: theme.cores.background.light,
         borderRadius: 12,
