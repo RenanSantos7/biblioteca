@@ -5,7 +5,7 @@ import IonIcon from 'react-native-vector-icons/Ionicons'
 
 import theme from '../styles/themes/themeSwitcher'
 
-import Home from '../pages/Home/Home'
+import Home from '../pages/Home'
 import SettingsPage from '../pages/Settings/SettingsPage'
 
 const Tab = createBottomTabNavigator()

@@ -9,20 +9,25 @@ interface CardLivroProps {
 	livro: ILivro;
 }
 
-export default function CardLivro({ livro }: CardLivroProps) {
+export default function CardLivro(props: CardLivroProps) {
 	const navigation = useNavigation();
 
 	return (
 		<TouchableOpacity
 			style={styles.container}
 			activeOpacity={0.9}
-			//@ts-expect-error
-			onPress={() => navigation.navigate('Livro')}
+			onPress={() => {
+				//@ts-expect-error
+				navigation.navigate('Livro', { livro: props.livro })
+			}}
 		>
-			<Image source={{ uri: livro.thumbnail }} style={styles.image} />
+			<Image
+				source={{ uri: props.livro.thumbnail }}
+				style={styles.image}
+			/>
 			<View style={styles.textoBox}>
-				<Text style={styles.titulo}>{livro.titulo}</Text>
-				<Text style={styles.texto}>{livro.autores[0]}</Text>
+				<Text style={styles.titulo}>{props.livro.titulo}</Text>
+				<Text style={styles.texto}>{props.livro.autores[0]}</Text>
 			</View>
 		</TouchableOpacity>
 	);

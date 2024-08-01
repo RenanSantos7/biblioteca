@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 import defaultStyles from "../../styles/defaultStyles";
 import theme from "../../styles/themes/themeSwitcher";
 
-export const styles = StyleSheet.create({
+const styles = StyleSheet.create({
     ...defaultStyles,
     barraPesquisa: {
         backgroundColor: theme.cores.background.light,
@@ -20,3 +20,5 @@ export const styles = StyleSheet.create({
         paddingVertical: 250,
     }
 });
+
+export default styles;

@@ -1,17 +1,19 @@
 import { Image, Text, View } from 'react-native';
+import { RouteProp, useRoute } from '@react-navigation/native';
 
-
-import { styles } from './LivroStyles';
+import { ILivro } from '../../types/types';
+import styles from './styles';
 import Button from '../../components/Button';
 import FlexLine from '../../components/FlexLine';
 import Scroll from '../../components/Scroll';
-import useDataContext from '../../contexts/dataContext';
 import Page from '../../components/Page';
+import { StackHomeParams } from '../../types/routerTypes';
 
+type LivroRouteProp = RouteProp<StackHomeParams, 'Livro'>;
 
 export default function Livro() {
-	const { livros } = useDataContext();
-	const livro = livros[0];
+	const route = useRoute<LivroRouteProp>();
+	const livro: ILivro = route.params.livro;
 
 	return (
 		<Page title={`${livro.titulo}`}>
@@ -98,14 +100,10 @@ export default function Livro() {
 					)}
 					<FlexLine style={styles.linha}>
 						<View style={styles.colunaDestaque}>
-							<Text style={styles.textoDestaque}>
-								Status:
-							</Text>
+							<Text style={styles.textoDestaque}>Status:</Text>
 						</View>
 						<View>
-							<Text style={styles.texto}>
-								{livro.status}
-							</Text>
+							<Text style={styles.texto}>{livro.status}</Text>
 						</View>
 					</FlexLine>
 
