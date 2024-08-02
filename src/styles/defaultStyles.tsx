@@ -15,12 +15,18 @@ const defaultStyles = StyleSheet.create({
         color: theme.cores.destaque.dark,
     },
     titulo2: {
-        fontSize: 16,
+        fontSize: 20,
+        fontWeight: '600',
+        color: theme.cores.destaque.dark,
+        marginBottom: 18
+    },
+    titulo3: {
+        fontSize: 14,
         fontWeight: '500',
         color: theme.cores.texto.dark
     },
     texto: {
-        fontSize: 14,
+        fontSize: 12,
         color: theme.cores.texto.main
     }
 });

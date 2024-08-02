@@ -36,5 +36,5 @@ export interface ILivro {
 	lingua: string;
 	numPaginas?: number;
 	formato?: 'digital' | 'físico';
-	status: 'Lido' | 'Não lido' | 'De lado' | 'Abandonado'
+	status: 'Lido' | 'Não lido' | 'De lado' | 'Abandonado';
 }

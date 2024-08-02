@@ -32,7 +32,6 @@ export default function Page(props: PageProps) {
 					</Text>
 				</FlexLine>
 			</View>
-
 			{props.children}
 		</View>
 	);
@@ -43,6 +42,6 @@ const styles = StyleSheet.create({
 	tituloContainer: {
 		// height: 150,
 		justifyContent: 'flex-end',
-		paddingVertical: 25,
+		paddingVertical: 10,
 	},
 });
