@@ -16,7 +16,7 @@ export default function Livro() {
 	const livro: ILivro = route.params.livro;
 
 	return (
-		<Page title={`${livro.titulo}`}>
+		<Page title={livro.titulo}>
 			<Scroll>
 				<Image source={{ uri: livro.thumbnail }} style={styles.capa} />
 
@@ -59,12 +59,14 @@ export default function Livro() {
 					<FlexLine style={styles.linha}>
 						<View style={styles.colunaDestaque}>
 							<Text style={styles.textoDestaque}>
-								Categorias:{' '}
+								Categorias:
 							</Text>
 						</View>
 						<View>
-							{livro.categorias.map(categoria => (
-								<Text style={styles.texto}>{categoria}</Text>
+							{livro.categorias.map((categoria, i) => (
+								<Text key={i} style={styles.texto}>
+									{categoria}
+								</Text>
 							))}
 						</View>
 					</FlexLine>

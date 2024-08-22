@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     },
     itemInvisible: {
         
-    }
+    },
 });
 
 export default styles;

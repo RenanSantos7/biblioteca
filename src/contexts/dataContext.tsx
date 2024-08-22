@@ -1,7 +1,6 @@
 import { createContext, ReactNode, useContext, useEffect, useState } from 'react';
 import { ILivro } from '../types/types';
 import { listaLivros } from './livros';
-import { getData } from '../firebase/requisitions';
 
 interface IDataContext {
 	user: {
@@ -30,7 +29,7 @@ const usuario = {
 const DataContext = createContext<IDataContext>(null);
 
 export function DataProvider({ children }: { children: ReactNode }) {
-	const [livros, setLivros] = useState<ILivro[]>([]);
+	const [livros, setLivros] = useState<ILivro[]>(listaLivros);
 	const [user, setuser] = useState(usuario);
 
 	function cadastrarLivro(
@@ -69,7 +68,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
 	}
 
 	useEffect(() => {
-		getData();
+		
 	}, []);
 
 	return (

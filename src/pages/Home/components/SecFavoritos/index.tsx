@@ -1,5 +1,6 @@
 import {
 	ActivityIndicator,
+	Dimensions,
 	FlatList,
 	StyleSheet,
 	View,
@@ -24,7 +25,7 @@ export default function Favoritos(props: FavoritosProps) {
 				renderItem={({ item }) => <CardLivro livro={item} />}
 				showsHorizontalScrollIndicator={false}
 				ListEmptyComponent={() => (
-					<View style={styles.containerCentralizado}>
+					<View style={styles.voidSection}>
 						<ActivityIndicator
 							color={theme.cores.destaque.main}
 							size='large'

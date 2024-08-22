@@ -12,14 +12,13 @@ const styles = StyleSheet.create({
 		borderRadius: 12,
 		gap: 10,
 		overflow: 'hidden',
-		marginBottom: 15,
-		// maxWidth: '50%',
 		width: 150,
-		height: 350
+		// height: 300,
+		marginBottom: 1,
 	},
     image: {
         width: '100%',
-        height: 250,
+        height: 200,
         resizeMode: 'cover',
     },
 	textoBox: {

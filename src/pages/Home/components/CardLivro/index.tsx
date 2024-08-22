@@ -1,16 +1,19 @@
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Image, Text, TouchableOpacity, View } from 'react-native';
+import { NavigationProp, useNavigation } from '@react-navigation/native';
+
 import { ILivro } from '../../../../types/types';
+import { StackHomeParams } from '../../../../types/routerTypes.tsx';
 import styles from './styles.tsx';
-import { Image } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
 
 interface CardLivroProps {
 	livro: ILivro;
 	invisible?: boolean;
 }
 
+type NagigationType = NavigationProp<StackHomeParams>;
+
 export default function CardLivro(props: CardLivroProps) {
-	const navigation = useNavigation();
+	const navigation = useNavigation<NagigationType>();
 
 	if (props.invisible) {
 		return <View style={[styles.container, styles.invisible]} />;
@@ -21,7 +24,6 @@ export default function CardLivro(props: CardLivroProps) {
 			style={styles.container}
 			activeOpacity={0.9}
 			onPress={() => {
-				//@ts-expect-error
 				navigation.navigate('Livro', { livro: props.livro });
 			}}
 		>

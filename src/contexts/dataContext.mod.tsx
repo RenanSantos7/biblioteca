@@ -1,6 +1,7 @@
 import { createContext, ReactNode, useContext, useEffect, useState } from 'react';
 import { ILivro } from '../types/types';
 import { listaLivros } from './livros';
+import { getData } from '../firebase/requisitions';
 
 interface IDataContext {
 	user: {
@@ -68,7 +69,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
 	}
 
 	useEffect(() => {
-		
+		getData()
 	}, []);
 
 	return (
