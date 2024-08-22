@@ -13,8 +13,8 @@ const lightTheme:ITheme = {
             light: '#50505020'
         },
         background: {
-            main: '#f6f6f6',
-            light: '#fcfcfc',
+            main: '#363636',
+            light: '#707070',
         },
         erro: {
             main: '#df4c12',

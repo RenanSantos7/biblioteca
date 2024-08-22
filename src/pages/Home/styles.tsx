@@ -22,6 +22,11 @@ const styles = StyleSheet.create({
     itemInvisible: {
         
     },
+    fab: {
+        position: 'absolute',
+        bottom: 75,
+        right: 25
+    }
 });
 
 export default styles;

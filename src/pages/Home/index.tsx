@@ -1,17 +1,23 @@
+import { View } from 'react-native';
+import { NavigationProp, useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
 
+import { DrawerParams } from '../../types/routerTypes';
 import BarraPesquisa from './components/BarraPesquisa';
 import FlexLine from '../../components/FlexLine';
+import FloatingBtn from '../../components/FloatingBtn';
 import Page from '../../components/Page';
 import Scroll from '../../components/Scroll';
-import styles from './styles';
-import useDataContext from '../../contexts/dataContext';
-import Favoritos from './components/SecFavoritos';
 import Section from './components/Section';
+import useDataContext from '../../contexts/dataContext';
+import styles from './styles';
+
 
 export default function Home() {
 	const { livros, user } = useDataContext();
 	const [pesquisa, setPesquisa] = useState('');
+
+	const navigation = useNavigation<NavigationProp<DrawerParams>>();
 
 	return (
 		<Page title={`Olá,  ${user.name}`}>
@@ -35,6 +41,15 @@ export default function Home() {
 				/>
 				{/* <LeitorCodigo /> */}
 			</FlexLine>
+
+			<View style={styles.fab}>
+				<FloatingBtn
+					icon='add'
+					onPress={() => {
+						navigation.navigate('Cadastro')
+					}}
+				/>
+			</View>
 		</Page>
 	);
 }
