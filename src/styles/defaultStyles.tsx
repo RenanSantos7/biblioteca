@@ -17,7 +17,7 @@ const defaultStyles = StyleSheet.create({
     titulo2: {
         fontSize: 20,
         fontWeight: '600',
-        color: theme.cores.destaque.dark,
+        color: theme.cores.destaque.darker,
         marginBottom: 18
     },
     titulo3: {

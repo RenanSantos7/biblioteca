@@ -20,6 +20,7 @@ import theme from '../../styles/themes/themeSwitcher';
 import useDataContext from '../../contexts/dataContext';
 import Recem from './components/Recem';
 import Favoritos from './components/SecFavoritos';
+import BtCadastro from './components/BtCadastro';
 
 export default function Home() {
 	const { livros, user } = useDataContext();
@@ -41,8 +42,12 @@ export default function Home() {
 					valor={pesquisa}
 					setValor={setPesquisa}
 				/>
-				{/* <LeitorCodigo /> */}
+				<LeitorCodigo />
 			</FlexLine>
+
+			<BtCadastro
+				onPress={() => alert('Botao')}
+			/>
 		</Page>
 	);
 }

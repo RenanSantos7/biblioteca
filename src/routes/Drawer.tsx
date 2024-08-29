@@ -2,12 +2,14 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
 import IonIcon from 'react-native-vector-icons/Ionicons';
 import MaterialComIcon from 'react-native-vector-icons/MaterialCommunityIcons';
+import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 
 import theme from '../styles/themes/themeSwitcher';
 
 import StackHome from './StackHome';
 import SettingsPage from '../pages/Settings/SettingsPage';
 import About from '../pages/About/About';
+import Register from '../pages/Register';
 
 const Drawer = createDrawerNavigator();
 
@@ -43,6 +45,31 @@ export default function DrawerRouter() {
 							return (
 								<MaterialComIcon
 									name='home-variant-outline'
+									color={color}
+									size={size}
+								/>
+							);
+						},
+					}}
+				/>
+
+				<Drawer.Screen
+					name='Novo Livro'
+					component={Register}
+					options={{
+						drawerIcon: ({ focused, color, size }) => {
+							if (focused) {
+								return (
+									<MaterialIcon
+										name='add'
+										color={color}
+										size={size}
+									/>
+								);
+							}
+							return (
+								<MaterialIcon
+									name='add'
 									color={color}
 									size={size}
 								/>
