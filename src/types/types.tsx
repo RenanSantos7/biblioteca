@@ -4,21 +4,34 @@ export interface ITheme {
 			main: string;
 			light?: string;
 			dark?: string;
+			darker?: string;
 		};
 		texto: {
 			main: string;
 			light?: string;
 			dark?: string;
+			darker?: string;
 		};
 		background: {
 			main: string;
 			light?: string;
 			dark?: string;
+			darker?: string;
 		};
 		erro: {
 			main: string;
 			light?: string;
 			dark?: string;
+			darker?: string;
+		};
+		cinza: {
+			100: string;
+			200: string;
+			300: string;
+			400: string;
+			500: string;
+			600: string;
+			700: string;
 		};
 	};
 }

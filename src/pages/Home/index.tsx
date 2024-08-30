@@ -39,7 +39,7 @@ export default function Home() {
 					valor={pesquisa}
 					setValor={setPesquisa}
 				/>
-				{/* <LeitorCodigo /> */}
+				<LeitorCodigo />
 			</FlexLine>
 
 			<View style={styles.fab}>
