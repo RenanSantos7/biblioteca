@@ -3,17 +3,15 @@ import { NavigationContainer } from '@react-navigation/native';
 import IonIcon from 'react-native-vector-icons/Ionicons';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import MaterialComIcon from 'react-native-vector-icons/MaterialCommunityIcons';
-import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 
 import theme from '../styles/themes/themeSwitcher';
 
+import { DrawerParams } from '../types/routerTypes';
+import Cadastro from '../pages/Cadastro';
 import StackHome from './StackHome';
 import SettingsPage from '../pages/Settings/SettingsPage';
 import About from '../pages/About/About';
-import Register from '../pages/Register';
 import Testes from '../pages/Testes';
-import { DrawerParams } from '../types/routerTypes';
-import Cadastro from '../pages/Cadastro';
 
 const Drawer = createDrawerNavigator<DrawerParams>();
 

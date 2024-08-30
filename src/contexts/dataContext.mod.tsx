@@ -1,7 +1,17 @@
-import { createContext, ReactNode, useContext, useEffect, useState } from 'react';
+import {
+	createContext,
+	Dispatch,
+	ReactNode,
+	SetStateAction,
+	useContext,
+	useEffect,
+	useState,
+} from 'react';
 import { ILivro } from '../types/types';
-import { listaLivros } from './livros';
-import { getData } from '../firebase/requisitions';
+import { addDoc, collection, getDocs, onSnapshot } from 'firebase/firestore';
+import db from '../firebase';
+
+type LivroSemId = Omit<ILivro, 'id'>;
 
 interface IDataContext {
 	user: {
@@ -21,6 +31,7 @@ interface IDataContext {
 		numPaginas?: number,
 		formato?: 'digital' | 'físico',
 	) => void;
+	loading: boolean;
 }
 
 const usuario = {
@@ -31,9 +42,23 @@ const DataContext = createContext<IDataContext>(null);
 
 export function DataProvider({ children }: { children: ReactNode }) {
 	const [livros, setLivros] = useState<ILivro[]>([]);
-	const [user, setuser] = useState(usuario);
+	const [user, setUser] = useState(usuario);
+	const [loading, setLoading] = useState(false);
 
-	function cadastrarLivro(
+	function getAllBooks() {
+		getDocs(collection(db, 'livros')).then(snapshot => {
+			let lista: any[] = [];
+			snapshot.forEach(doc => {
+				lista.push({
+					id: doc.id,
+					...doc.data(),
+				});
+			});
+			setLivros(lista);
+		});
+	}
+
+	async function cadastrarLivro(
 		isbn: string,
 		titulo: string,
 		autores: string[],
@@ -50,8 +75,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
 			(maxId, livro) => Math.max(maxId, Number(livro.id)),
 			0,
 		);
-		const novoLivro:ILivro = {
-			id: `${proxId + 1}`,
+		const novoLivro: LivroSemId = {
 			isbn: isbn,
 			titulo: titulo,
 			autores: autores,
@@ -63,20 +87,33 @@ export function DataProvider({ children }: { children: ReactNode }) {
 			lingua: lingua,
 			numPaginas: numPaginas,
 			formato: formato,
-			status: 'Não lido'
+			status: 'Não lido',
 		};
-		setLivros(prev => [...prev, novoLivro]);
+		await addDoc(collection(db, 'livros'), novoLivro);
+		setLivros(prev => [...prev, { id: String(proxId), ...novoLivro }]);
 	}
 
 	useEffect(() => {
-		getData()
+		getAllBooks();
 	}, []);
 
+	useEffect(() => {
+		if (livros) {
+			setLoading(false);
+		} else {
+			setLoading(true);
+		}
+	}, [livros]);
+
 	return (
-		<DataContext.Provider value={{
-			user,
-			livros, cadastrarLivro
-		}}>
+		<DataContext.Provider
+			value={{
+				user,
+				livros,
+				cadastrarLivro,
+				loading,
+			}}
+		>
 			{children}
 		</DataContext.Provider>
 	);

@@ -9,8 +9,9 @@ import FloatingBtn from '../../components/FloatingBtn';
 import Page from '../../components/Page';
 import Scroll from '../../components/Scroll';
 import Section from './components/Section';
-import useDataContext from '../../contexts/dataContext';
+import useDataContext from '../../contexts/dataContext.mod.tsx';
 import styles from './styles';
+import LeitorCodigo from './components/LeitorCodigo';
 
 
 export default function Home() {
@@ -22,7 +23,6 @@ export default function Home() {
 	return (
 		<Page title={`Olá,  ${user.name}`}>
 			<Scroll style={{ flex: 1 }}>
-				{/* <Recem livros={livros} /> */}
 				<Section
 					title='Recém cadastrados'
 					livros={livros}

@@ -5,6 +5,7 @@ export type DrawerParams = {
     Cadastro: undefined;
     Opcoes: undefined;
     Sobre: undefined;
+    Testes: undefined;
 }
 
 export type StackHomeParams = {

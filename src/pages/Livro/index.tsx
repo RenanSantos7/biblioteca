@@ -8,6 +8,8 @@ import FlexLine from '../../components/FlexLine';
 import Scroll from '../../components/Scroll';
 import Page from '../../components/Page';
 import { StackHomeParams } from '../../types/routerTypes';
+import { useEffect } from 'react';
+import convertDate from '../../utils/convertDate';
 
 type LivroRouteProp = RouteProp<StackHomeParams, 'Livro'>;
 
@@ -30,8 +32,8 @@ export default function Livro() {
 							<Text style={styles.textoDestaque}>Autores: </Text>
 						</View>
 						<View>
-							{livro.autores.map(autor => (
-								<Text style={styles.texto}>{autor}</Text>
+							{livro.autores.map((autor, i) => (
+								<Text key={i} style={styles.texto}>{autor}</Text>
 							))}
 						</View>
 					</FlexLine>
@@ -52,7 +54,7 @@ export default function Livro() {
 							</Text>
 						</View>
 						<View>
-							<Text style={styles.texto}>{livro.dataPub}</Text>
+							<Text style={styles.texto}>{convertDate(livro.dataPub)}</Text>
 						</View>
 					</FlexLine>
 

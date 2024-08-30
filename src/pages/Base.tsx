@@ -8,7 +8,7 @@ import DrawerRouter from '../routes/Drawer';
 
 export default function App() {
   useEffect(() => {
-		NavigationBar.setBackgroundColorAsync(theme.cores.background.light);
+		NavigationBar.setBackgroundColorAsync(theme.cores.background.main);
   }, []);
   
   return (

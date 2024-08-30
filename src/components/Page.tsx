@@ -1,9 +1,11 @@
-import { StyleSheet, Text, View } from 'react-native';
-import defaultStyles from '../styles/defaultStyles';
-import FlexLine from './FlexLine';
-import BtDrawer from './BtDrawer';
-import { defaultGap } from '../constants';
 import { ReactNode } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+
+import { defaultGap } from '../constants';
+import BtDrawer from './BtDrawer';
+import FlexLine from './FlexLine';
+import defaultStyles from '../styles/defaultStyles';
+import theme from '../styles/themes/themeSwitcher';
 
 interface PageProps {
 	title: string;
@@ -39,6 +41,11 @@ export default function Page(props: PageProps) {
 
 const styles = StyleSheet.create({
 	...defaultStyles,
+	containerPag: {
+        flex: 1,
+        paddingHorizontal: 15,
+        backgroundColor: theme.cores.background.main,
+    },
 	tituloContainer: {
 		// height: 150,
 		justifyContent: 'flex-end',
