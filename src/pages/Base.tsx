@@ -1,4 +1,4 @@
-import { StatusBar, StyleSheet, Text, View } from 'react-native';
+import { StatusBar, StyleSheet, View } from 'react-native';
 import { useEffect } from 'react';
 import * as NavigationBar from 'expo-navigation-bar';
 
@@ -9,8 +9,8 @@ import DrawerRouter from '../routes/Drawer';
 export default function App() {
   useEffect(() => {
 		NavigationBar.setBackgroundColorAsync(theme.cores.background.light);
-
-	}, []);
+  }, []);
+  
   return (
     <View style={styles.appContainer}>
       <StatusBar

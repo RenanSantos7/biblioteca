@@ -10,6 +10,7 @@ import StackHome from './StackHome';
 import SettingsPage from '../pages/Settings/SettingsPage';
 import About from '../pages/About/About';
 import Register from '../pages/Register';
+import Testes from '../pages/Testes';
 
 const Drawer = createDrawerNavigator();
 
@@ -120,6 +121,22 @@ export default function DrawerRouter() {
 							return (
 								<MaterialComIcon
 									name='information-outline'
+									color={color}
+									size={size}
+								/>
+							);
+						},
+					}}
+				/>
+
+				<Drawer.Screen
+					name='Testes'
+					component={Testes}
+					options={{
+						drawerIcon: ({ color, size }) => {
+							return (
+								<MaterialComIcon
+									name='test-tube'
 									color={color}
 									size={size}
 								/>

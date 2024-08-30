@@ -4,11 +4,12 @@ import theme from "./themes/themeSwitcher";
 const defaultStyles = StyleSheet.create({
     appContainer: {
         flex: 1,
-        backgroundColor: theme.cores.background.main,
+        // backgroundColor: theme.cores.background.main,
     },
     containerPag: {
         flex: 1,
         paddingHorizontal: 15,
+        // paddingTop: 15,
     },
     titulo1: {
         fontSize: 32,
