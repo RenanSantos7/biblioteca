@@ -1,8 +1,8 @@
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
-import IonIcon from 'react-native-vector-icons/Ionicons';
-import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
-import MaterialComIcon from 'react-native-vector-icons/MaterialCommunityIcons';
+import IonIcon from '@expo/vector-icons/Ionicons';
+import MaterialIcon from '@expo/vector-icons/MaterialIcons';
+import MaterialComIcon from '@expo/vector-icons/MaterialCommunityIcons';
 
 import theme from '../styles/themes/themeSwitcher';
 

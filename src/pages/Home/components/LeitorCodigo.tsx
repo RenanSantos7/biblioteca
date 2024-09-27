@@ -1,5 +1,5 @@
 import { StyleSheet, Text, TouchableHighlight, View } from 'react-native';
-import MaterialComIcon from 'react-native-vector-icons/MaterialCommunityIcons'
+import MaterialComIcon from '@expo/vector-icons/MaterialCommunityIcons'
 
 interface LeitorCodigoProps {
     

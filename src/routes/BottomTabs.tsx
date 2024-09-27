@@ -1,7 +1,7 @@
 /* import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { NavigationContainer } from '@react-navigation/native'
-import MaterialComIcon from 'react-native-vector-icons/MaterialCommunityIcons'
-import IonIcon from 'react-native-vector-icons/Ionicons'
+import MaterialComIcon from '@expo/vector-icons/MaterialCommunityIcons'
+import IonIcon from '@expo/vector-icons/Ionicons'
 
 import theme from '../styles/themes/themeSwitcher'
 

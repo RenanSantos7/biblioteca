@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction } from 'react';
 import { StyleSheet, Text, TextInput, View } from 'react-native';
-import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome6'
+import FontAwesomeIcon from '@expo/vector-icons/FontAwesome6'
 
 import defaultStyles from '../../../styles/defaultStyles';
 import theme from '../../../styles/themes/themeSwitcher';

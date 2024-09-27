@@ -1,5 +1,5 @@
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
-import MaterialComIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import MaterialComIcons from '@expo/vector-icons/MaterialCommunityIcons';
 
 import theme from '../styles/themes/themeSwitcher';
 

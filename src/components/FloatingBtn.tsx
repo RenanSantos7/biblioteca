@@ -1,5 +1,5 @@
 import { StyleSheet, TouchableOpacity } from 'react-native';
-import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
+import MaterialIcon from '@expo/vector-icons/MaterialIcons';
 
 import theme from '../styles/themes/themeSwitcher';
 

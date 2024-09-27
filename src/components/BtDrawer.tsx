@@ -1,6 +1,6 @@
 import { StyleSheet, TouchableHighlight } from 'react-native'
 import { DrawerActions, useNavigation } from '@react-navigation/native'
-import FontAwesome6Icon from 'react-native-vector-icons/FontAwesome6'
+import FontAwesome6Icon from '@expo/vector-icons/FontAwesome6'
 import theme from '../styles/themes/themeSwitcher'
 
 export default function BtDrawer() {
